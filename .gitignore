@@ -1,0 +1,6 @@
+/target
+/.mypy_cache
+/__pycache__
+/pysrc/__pycache__
+/.pytest_cache
+*.sif
