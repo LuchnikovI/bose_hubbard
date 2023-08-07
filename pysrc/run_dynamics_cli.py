@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+import os
 import argparse
 from argparse import RawTextHelpFormatter
 from utils import Config
@@ -17,8 +18,9 @@ def main():
     parser.add_argument("--config", "-c", help=config_help)
     parser.add_argument("--result", "-r", help=result_help)
     args = parser.parse_args()
+    name = os.path.splitext(os.path.basename(args.config))[0]
     with open(args.config, "r") as f:
-        config = Config(f.read())
+        config = Config(f.read(), name)
     config.run_bose_hubbard_dynamics(args.result)
 
 

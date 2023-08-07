@@ -81,9 +81,9 @@ class Config:
         }
         return yaml.safe_dump(repr)
 
-    def __init__(self, config: str):
+    def __init__(self, config: str, name: str):
+        self.name = name
         config = yaml.safe_load(config)
-        self.name = config["name"]
         self.hopping_graph = tuple(map(tuple, config["hopping_graph"]))
         self.hopping_amplitude = float(config["hopping_amplitude"])
         self.interaction_amplitude = float(config["interaction_amplitude"])
